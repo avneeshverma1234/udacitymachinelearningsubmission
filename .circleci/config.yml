@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
     # Use the same Docker base as the project
-      - image: cimg/python:3.10.2
+      - image: cimg/python:3.7.3
 
     working_directory: ~/repo
 
