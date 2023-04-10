@@ -37,7 +37,7 @@ jobs:
           name: Install HadoLint
           command: |
             # Install hadolint            
-            sudo chmod +x /bin/hadolint
+            chmod +x /bin/hadolint
             export PATH=$PATH:/bin/hadolint
       - save_cache:
           paths:
