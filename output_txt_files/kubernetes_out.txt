@@ -1,3 +1,20 @@
+---- Pod status ----------
+kubectl get pods  udacitymachinelearning-7f6ccc465d-4jgv9 -o jsonpath="Name: {.metadata.name} Status: {.status.phase}"
+Name: udacitymachinelearning-7f6ccc465d-4jgv9 Status: Running
+
+
+----Port forwarding logs:
+kubectl port-forward pod/udacitymachinelearning-7f6ccc465d-4jgv9 --address 0.0.0.0 5000:80
+Forwarding from 0.0.0.0:5000 -> 80
+Handling connection for 5000
+Handling connection for 5000
+Handling connection for 5000
+Handling connection for 5000
+Handling connection for 5000
+
+------------------------------------------------------
+kubectl logs udacitymachinelearning-7f6ccc465d-4jgv9
+
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
@@ -21,3 +38,4 @@
 [2023-04-15 12:52:03,151] INFO in app: Prediction Value:
 [20.35373177134412]
 127.0.0.1 - - [15/Apr/2023 12:52:03] "POST /predict HTTP/1.1" 200 -
+

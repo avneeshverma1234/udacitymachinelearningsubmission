@@ -31,20 +31,46 @@ python3 -m pip install --user virtualenv
 # You should have Python 3.7 available in your host. 
 # Check the Python path using `which python3`
 # Use a command similar to this one:
-python3 -m virtualenv --python=<path-to-Python3.7> .devops
-source .devops/bin/activate
+python3 -m venv ./venv
+source ./venv/bin/acivate
 ```
-* Run `make install` to install the necessary dependencies
 
-### Running `app.py`
+## Key commands and scripts
+```bash
+# Create Python virtual environment (in venv folder)
+make setup
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+# Install Python dependencies (run on Python virtual environment)
+./venv/bin/acivate
+make install
 
-### Kubernetes Steps
+# Run static code analysis (run on Python virtual environment)
+make lint
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+# Run the Python app on local Python virtual environment
+python app.py
+
+# Build Docker image and run local container
+./run_docker.sh
+
+# Upload Docker image to DockerHub
+./upload_docker.sh
+
+# Run Docker image on Kubernetes cluster
+./run_kubernetes.sh
+
+```
+
+## Key files list
+| File  | Description |
+| ------------- | ------------- |
+| `.circleci`  | CircleCI configuration folder  |
+| `Dockerfile`  | Docker build file  |
+| `Makefile`  | make utility file |
+| `app.py`  | Machine Learning Microservice API Python application |
+| `make_prediction.sh`  | Linux bash script to trigger a prediction via the application API |
+| `model_data`  | Machine learning application model data folder |
+| `requirements.txt`  | Python dependencies file |
+| `run_docker.sh`  | Linux bash script to build Docker image and run local container |
+| `run_kubernetes.sh`  | Linux bash script to run Docker image on Kubernetes cluster |
+| `upload_docker.sh`  | Linux bash script to upload Docker image to DockerHub |
