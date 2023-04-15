@@ -19,6 +19,7 @@ def scale(payload):
 
 @app.route("/")
 def home():
+    LOG.info("Invoking Index Page")
     html = f"<h3>Sklearn Prediction Home</h3>"
     return html.format(format)
 
