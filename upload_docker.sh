@@ -5,7 +5,7 @@
 
 # Step 1:
 # Create dockerpath
- dockerpath=avneeshver/udacitymachinelearning
+dockerpath=avneeshver/udacitymachinelearning
 
 # Step 2:  
 # Authenticate & tag
@@ -13,4 +13,4 @@ echo "Docker ID and Image: $dockerpath"
 
 # Step 3:
 # Push image to a docker repository
-docker push avneeshver/udacitymachinelearning
+docker push $dockerpath
